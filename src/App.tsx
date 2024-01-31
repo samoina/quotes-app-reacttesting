@@ -12,13 +12,23 @@ function App() {
   ];
 
   const handlePrevious = () => {
-    console.log('the previous')
-        setIndex((prevIndex)=> prevIndex+1)
+    console.log(index)
+    //need to check, if index<0 || index >4, return, else
+    if(index === 0) {
+      setIndex(4)
+    } else {
+      setIndex((prevIndex)=> prevIndex-1)
+    }
+     
   }
 
   const handleNext = () => {
-    console.log('the next')
-    setIndex((prevIndex)=> prevIndex-1)
+    console.log(index)
+    if(index === 4) {
+      setIndex(0)
+    } else {
+      setIndex((prevIndex)=> prevIndex+1)
+    }
   }
 
   return (
