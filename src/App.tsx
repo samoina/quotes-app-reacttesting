@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PreviousButton from "./components/PreviousButton";
 import NextButton from "./components/NextButton";
+import Quote from "./components/Quote";
 
 function App() {
   //add type annotations to show that index is a number
@@ -36,10 +37,10 @@ function App() {
 
   return (
     <>
-      <blockquote className="display">
-    
+      {/* <blockquote className="display">
         {quotesArr[index]}
-      </blockquote>
+      </blockquote> */}
+      <Quote quote={quotesArr[index]}/>
 
       <PreviousButton onClick={handlePrevious} text='Previous'/>
       <NextButton onClick={handleNext} text='Next'/>
