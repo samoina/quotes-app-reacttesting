@@ -1,9 +1,13 @@
 import { useState } from "react";
+import PreviousButton from "./components/PreviousButton";
+import NextButton from "./components/NextButton";
 
 function App() {
- const [index, setIndex] = useState(0)
+  //add type annotations to show that index is a number
+ const [index, setIndex] = useState<number>(0)
 
-  const quotesArr = [
+ //specify that this is an array of strings
+  const quotesArr: string[] = [
     `“We cannot solve problems with the kind of thinking we employed when we came up with them.” — Albert Einstein`,
     `“It is only when we take chances, when our lives improve. The initial and the most difficult risk that we need to take is to become honest. —Walter Anderson`,
     `“If you are working on something that you really care about, you don’t have to be pushed. The vision pulls you.” — Steve Jobs`,
@@ -12,16 +16,15 @@ function App() {
   ];
 
   const handlePrevious = () => {
-    console.log(index)
-    //need to check, if index<0 || index >4, return, else
+    //if a user clicks previous, at that point the index is = 0, so i want to set it to the end of the array to show the last quote  
     if(index === 0) {
       setIndex(4)
     } else {
       setIndex((prevIndex)=> prevIndex-1)
     }
-     
   }
 
+   //if a user clicks next and at that point the index is = 4, so i want to set it to the start of the array to show the first quote so that the loop feels continuous
   const handleNext = () => {
     console.log(index)
     if(index === 4) {
@@ -38,8 +41,8 @@ function App() {
         {quotesArr[index]}
       </blockquote>
 
-      <button onClick={handlePrevious}>Previous</button>
-      <button onClick={handleNext}>Next</button>
+      <PreviousButton onClick={handlePrevious} text='Previous'/>
+      <NextButton onClick={handleNext} text='Next'/>
     </>
   )
 }
