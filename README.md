@@ -1,6 +1,6 @@
 # Frontend Mentor - FAQ accordion card solution
 
-This is a mini-app designed to show different quotes depending on the button clicked. i am using it to practice with Vitest and React Testing Library.
+This is a mini-app designed to show different quotes depending on the button clicked. I am using it to practice with Vitest and React Testing Library.
 
 ## Table of contents
 
@@ -34,6 +34,12 @@ Users should be able to:
 - Live Site URL: [Netlify Link]()
 
 ## My process
+
+I created a simple app to include 3 components - the Quotes, the PreviousButton and the NextButton. These are the components I intend to carry out unit testing on, and then the integration test for the app component that houses all three of these.
+
+Unit testing refers to testing for a single functional component. Integration testing on the other hand refers to testing how the components work together - how do they interact together?
+
+I will be using co-location for test files so that they're easier to recognize. this means, naming the test file in the same way as the file to be tested, with the only difference been the inclusion of `test` in the former.
 
 ### Built with
 

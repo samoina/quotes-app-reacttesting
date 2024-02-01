@@ -4,7 +4,7 @@ interface QuoteProps {
 
 const Quote: React.FC<QuoteProps > = ({quote}) => {
   return (
-    <div>{quote}</div>
+    <blockquote>{quote}</blockquote>
   )
 }
 export default Quote
