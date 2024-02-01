@@ -73,7 +73,31 @@ To test for these two similar compnents, here's what I am looking to do:
 - that it renders properly. as a general guide, it is best to render first then debug what's visible on screen
 - that the button in it can be clicked, and do something and yet this is passed on as a prop.
 
-The latter is a bit confusing because the onclick functionality will not be implemented in this specific test case. This is why the solution lies in calling a placeholder function that throws an error when called. For this same reason, text is passed on as a placeholder.
+The latter is a bit confusing because the onclick functionality will not be implemented in this specific test case. This is why the solution lies in calling a placeholder function that throws an error when called. NB: the placeholder function after onClick does not work, throws an error as below
+
+```jsx
+describe('Previous Button', () => {
+	it('should render properly', () => {
+		render(
+			<PreviousButton
+				onClick={function (): void {
+					throw new Error('Function not implemented.');
+				}}
+				text={''}
+			/>
+		);
+	});
+});
+```
+
+To counter this, i need to create a mock function by creating a void one using vitests vi.fn()
+
+```jsx
+const onClick = vi.fn();
+
+```
+
+For this same reason, text is passed on as a placeholder.
 
 - to do this, i first need to select the button element. This is made possible by the screen object's functions and queries. the selected element can then be used for user interactions.
 
@@ -83,7 +107,17 @@ Most common is `getByText` and `getByRole` - the latter is used to get elements 
 
 To get accessible roles, use `screen.getByRole('');`. this will show all the selectable roles. I then reate a variable and assign it to the element i have grabbed from the component.
 
-the next thing is to check for a click on the component using RTL's fireEvent. 
+the next thing is to check for a click on the component using RTL's fireEvent.
+
+```jsx
+const button = screen.getByRole('button');
+
+fireEvent.click(button);
+
+expect(onClick).toBeCalledTimes(1);
+```
+
+
 
 ### Continued development
 
