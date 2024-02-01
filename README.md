@@ -37,9 +37,17 @@ Users should be able to:
 
 I created a simple app to include 3 components - the Quotes, the PreviousButton and the NextButton. These are the components I intend to carry out unit testing on, and then the integration test for the app component that houses all three of these.
 
+### Built with
+
+- React + Typescript
+
+### What I learned
+
 Unit testing refers to testing for a single functional component. Integration testing on the other hand refers to testing how the components work together - how do they interact together?
 
 I will be using co-location for test files so that they're easier to recognize. this means, naming the test file in the same way as the file to be tested, with the only difference been the inclusion of `test` in the former.
+
+#### Testing the Quote component
 
 Since the `Quote` component only displays the quote, a good place to start with testing would be to make sure that it renders. To do this, I need to:
 
@@ -58,11 +66,24 @@ Well I then use screen.debug() to output the state of the component to the conso
 
 Once the test completes, the RTL cleans up the virtual DOM so that each test case starts on a clean slate.
 
-### Built with
+#### Testing PreviousButton and NextButton
 
-- React + Typescript
+To test for these two similar compnents, here's what I am looking to do:
 
-### What I learned
+- that it renders properly. as a general guide, it is best to render first then debug what's visible on screen
+- that the button in it can be clicked, and do something and yet this is passed on as a prop.
+
+The latter is a bit confusing because the onclick functionality will not be implemented in this specific test case. This is why the solution lies in calling a placeholder function that throws an error when called. For this same reason, text is passed on as a placeholder.
+
+- to do this, i first need to select the button element. This is made possible by the screen object's functions and queries. the selected element can then be used for user interactions.
+
+types of queries include: `getBy` `queryBy`
+
+Most common is `getByText` and `getByRole` - the latter is used to get elements by their label attributes.
+
+To get accessible roles, use `screen.getByRole('');`. this will show all the selectable roles. I then reate a variable and assign it to the element i have grabbed from the component.
+
+the next thing is to check for a click on the component using RTL's fireEvent. 
 
 ### Continued development
 
