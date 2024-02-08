@@ -94,7 +94,6 @@ To counter this, i need to create a mock function by creating a void one using v
 
 ```jsx
 const onClick = vi.fn();
-
 ```
 
 For this same reason, text is passed on as a placeholder.
@@ -117,7 +116,20 @@ fireEvent.click(button);
 expect(onClick).toBeCalledTimes(1);
 ```
 
+the 3 A's of good testing - Arrange, Act, Assert
 
+#### Integrated testing for the App
+
+I first rendered the App component, then broke down what my test is meant to do:
+
+- on load display the first quote in the array (index 0 on the array)
+- on click of the next button, show me the second quote in the array (index 1 on the array)
+- on click of the previous button show me the first quote (index 0 on the array)
+
+I was wondering how to code the part for getting quotes from the blockquote HTML element
+
+- getByTestId() is a type of search (low priority), options include `getByRole, getByText, getByLabelText, getByPlaceholderText`
+  With this type, we need to assign data-testid attributes in the source code
 
 ### Continued development
 

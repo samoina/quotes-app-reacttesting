@@ -21,7 +21,5 @@ describe('Next Button', () => {
 
 		//Assert
 		expect(onClick).toBeCalledTimes(1);
-
-
 	})
 });

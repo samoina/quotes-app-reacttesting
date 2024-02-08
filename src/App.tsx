@@ -37,9 +37,7 @@ function App() {
 
 	return (
 		<>
-			{/* <blockquote className="display">
-        {quotesArr[index]}
-      </blockquote> */}
+		
 			<div>
 				<Quote quote={quotesArr[index]} />
 			</div>
