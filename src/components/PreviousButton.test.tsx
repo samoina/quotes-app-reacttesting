@@ -12,7 +12,8 @@ describe('Previous Button', () => {
   });
 
   it('should invoke "onClick" when clicked once', ()=>{
-    //the button must render!
+    //the button must render even if it rendered in the previous component. this is the first step of a react test
+    //Arrange
     render(<PreviousButton onClick={onClick} text={' '}/>)
     const button = screen.getByRole('button');
 

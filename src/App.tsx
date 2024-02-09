@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PreviousButton from './components/PreviousButton';
 import NextButton from './components/NextButton';
 import Quote from './components/Quote';
+import TestForm from './components/TestForm';
 
 function App() {
 	//add type annotations to show that index is a number
@@ -46,6 +47,8 @@ function App() {
 				<PreviousButton onClick={handlePrevious} text="Previous" />
 				<NextButton onClick={handleNext} text="Next" />
 			</div>
+
+			<TestForm />
 		</>
 	);
 }

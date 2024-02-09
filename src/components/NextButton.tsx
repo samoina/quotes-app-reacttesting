@@ -5,7 +5,7 @@ interface NextButtonProps {
 
 const NextButton: React.FC< NextButtonProps> = ({onClick, text}) => {
   return (
-    <button onClick={onClick}>{text}</button>
+    <button id='next-button' onClick={onClick}>{text}</button>
   )
 }
 export default NextButton
